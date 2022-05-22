@@ -2,6 +2,8 @@ import { useState, useEffect } from "react"
 import { supabase } from "../lib/supabaseClient"
 import { useRouter } from "next/router"
 import { Button } from "@chakra-ui/react"
+import LogoutButton from "../components/molecules/LogoutButton"
+import NavBarLoggedIn from "../components/organisms/NavBar/NavBarLoggedIn"
 
 export default function Account() {
     const [account, setAccount] = useState(null)
@@ -28,7 +30,7 @@ export default function Account() {
     return (
         <div>
             <h2>{account.email}</h2>
-            <Button onClick={signOut}>Sign Out</Button>
+            <NavBarLoggedIn />
         </div>
     )
 }

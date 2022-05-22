@@ -1,16 +1,10 @@
-import Link from "next/link";
+import NavBarLoggedIn from "../organisms/NavBar/NavBarLoggedIn";
 
-export default function LoginPage () {
+export default function NavBar () {
+    // This needs to alternate based on if user is logged in or not
     return (
         <div>
-            <nav>
-                <Link href='/account'>
-                    Account
-                </Link>
-                {
-                    authentcated
-                }
-            </nav>
+
         </div>
     )
 }

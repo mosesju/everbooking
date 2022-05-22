@@ -6,6 +6,7 @@ import {
     Input,
     Button
 } from '@chakra-ui/react'
+
 export default function Auth({user}) {
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')

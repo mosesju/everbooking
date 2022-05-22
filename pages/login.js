@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import TestButton from '../components/molecules/TestButton'
+import Auth from '../components/templates/Auth'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -13,9 +12,8 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <TestButton />
         <h1>Everbooking</h1>
-        
+        <Auth />        
       </main>
       <footer className={styles.footer}>
         Footer Junk

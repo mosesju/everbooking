@@ -3,7 +3,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import { extendTheme } from '@chakra-ui/react'
 import {useState, useEffect} from 'react'
 import Link from 'next/link'
-import { supabase } from '../lib/supabaseClient';
+import { supabase } from '../lib/supabase/supabaseClient';
 import { useRouter } from 'next/router'
 
 const colors = {

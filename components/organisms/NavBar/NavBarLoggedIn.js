@@ -1,4 +1,4 @@
-import LogoutButton from "../../molecules/LogoutButton";
+import LogoutButton from "../../molecules/Auth/LogoutButton";
 import NavBarItem from "../../molecules/NavBar/NavBarItem";
 
 export default function NavBarLoggedIn () {

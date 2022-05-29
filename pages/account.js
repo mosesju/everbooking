@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
-import { supabase } from "../lib/supabaseClient"
+import { supabase } from "../lib/supabase/supabaseClient"
 import { useRouter } from "next/router"
 import { Button } from "@chakra-ui/react"
-import LogoutButton from "../components/molecules/LogoutButton"
+import LogoutButton from "../components/molecules/Auth/LogoutButton"
 import NavBarLoggedIn from "../components/organisms/NavBar/NavBarLoggedIn"
 
 export default function Account() {

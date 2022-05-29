@@ -1,5 +1,5 @@
 import { Button } from "@chakra-ui/react";
-import { supabase } from "../../lib/supabaseClient";
+import { supabase } from "../../../lib/supabase/supabaseClient";
 import { useRouter } from 'next/router'
 
 export default function LogoutButton () {
@@ -8,7 +8,7 @@ export default function LogoutButton () {
     async function signOut({ user }) {
         console.log({ user })
         await supabase.auth.signOut()
-        router.push('/sign-in')
+        router.push('/login')
     }
     return (
         <div>

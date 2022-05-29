@@ -11,29 +11,12 @@ import {
     Button
   } from "@chakra-ui/react";
 import TableHeadline from "../../atoms/Table/TableHeadline";
-// import { useTable, useSortBy, Column } from "react-table";
-// import {
-//     TriangleDownIcon,
-//     TriangleUpIcon
-// } from "@chakra-ui/icons";
+
 
 export default function SimpleTable ({ data, caption, headings }) {
-    const [cols, setCols] = useState([])
-    // const [data, setData] = useState([])
-
-    // const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    // useTable({ columns, data }, useSortBy)
-
-
-    const getColumnHeaders = () => {
-        console.log(headings)
-        // const item = data[0]
-        // const columnArray = Object.keys(item)
-        // setCols(columnArray)
-        // console.log(columnArray)
-    }
+    
     useEffect(()=>{
-        getColumnHeaders()
+        // getColumnHeaders()
     },[data])
     return (
         <div>

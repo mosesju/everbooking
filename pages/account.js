@@ -11,6 +11,8 @@ export default function Account() {
 
     useEffect(() =>{
         fetchAccount()
+        const user = supabase.auth.user()
+        console.log(user)
     },[])
 
     async function fetchAccount(){

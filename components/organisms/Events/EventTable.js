@@ -10,10 +10,11 @@ export default function Events(){
 
     async function fetchEvents() {
         const user = supabase.auth.user()
+        console.log(user)
         const { data } = await supabase
             .from('Events')
             .select('*')
-            .eq('user', user)
+            .eq('user', user.id)
         setEvents(data)
     }
     function tableHeadingSetter(){
@@ -25,9 +26,9 @@ export default function Events(){
         fetchEvents()
         
     },[])
-    // useEffect(()=>{
-    //     console.log('Event Change:' + events)
-    // },[events])
+    useEffect(()=>{
+        console.log('Event Change:' + events)
+    },[events])
     return (
         <div>
             Events Table

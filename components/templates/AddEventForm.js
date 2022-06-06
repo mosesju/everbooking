@@ -16,17 +16,21 @@ export default function AddEventForm () {
     const [date, setDate] = useState(new Date());
     
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = async (data) =>{
-        console.log(data)
-        const { data, error } = await supabase
+    const onSubmit = async (formData) =>{
+        const user = supabase.auth.user()
+        const { res, error } = await supabase
             .from('Events')
             .insert([
                 {
-                    event_name: data.name,
-                    venue: data.venue,
-                    description: data.description
+                    user: user.id,
+                    event_name: formData.name,
+                    venue: formData.venue,
+                    description: formData.description
                 },
             ])
+            .then((res) => {
+                console.log(res)
+            })
     }
     function handleDateChange () {
         console.log('datechange')
@@ -42,27 +46,14 @@ export default function AddEventForm () {
                         placeholder='Coolest Event Ever' 
                         {...register('name', {
                             required: 'Required Field',
-                            minLength: { value: 4, message: 'Name should be longer than 4 characters'}
+                            minLength: { value: 2, message: 'Name should be longer than 4 characters'}
                         })}
                     />
                     <FormErrorMessage>
                         {errors.name && errors.name.message}
                     </FormErrorMessage>
                 </FormControl>
-                {/* <FormControl isInvalid={errors.name}>
-                    <FormLabel htmlFor='Venue'>Enter Venue Name</FormLabel>
-                    <Input 
-                        id="Venue" 
-                        placeholder='Coolest Venue Ever' 
-                        {...register('venue', {
-                            required: 'Required Field',
-                            minLength: { value: 4, message: 'Name should be longer than 4 characters'}
-                        })}
-                    />
-                    <FormErrorMessage>
-                        {errors.name && errors.name.message}
-                    </FormErrorMessage>
-                </FormControl> */}
+                
                 <FormControl isInvalid={errors.name}>
                     <FormLabel htmlFor='Venue'>Enter Venue Name</FormLabel>
                     <Input 
@@ -78,7 +69,7 @@ export default function AddEventForm () {
                     </FormErrorMessage>
                 </FormControl>
                 <FormControl isInvalid={errors.name}>
-                    <FormLabel htmlFor='description'>Enter Venue Name</FormLabel>
+                    <FormLabel htmlFor='description'>Enter Event Description</FormLabel>
                     <Textarea 
                         id="description" 
                         placeholder='Coolest Venue Ever' 
